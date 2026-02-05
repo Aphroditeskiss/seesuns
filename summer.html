@@ -250,26 +250,100 @@
       font-size: 1.9rem;
     }
 
-    footer {
+     footer {
       background: var(--forest);
       color: var(--cream);
-      text-align: center;
-      padding: 2.5rem;
+      padding: 3rem 1.5rem 2rem;
       font-size: 0.95rem;
     }
 
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-logo img {
+      height: 50px;
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-section h4 {
+      font-family: "Cinzel", serif;
+      margin-bottom: 1.1rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section a:hover {
+      color: var(--gold);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .social-icons img {
+      height: 28px;
+      transition: transform 0.25s;
+    }
+
+    .social-icons a:hover img {
+      transform: scale(1.15);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      font-size: 0.85rem;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 900px) {
+      .slideshow-section {
+        flex-direction: column;
+      }
+
+      .image-section {
+        flex-direction: column;
+        padding: 4rem 1rem;
+      }
+
+      .image-overlay {
+        opacity: 1;
+        background: rgba(0,0,0,0.5);
+      }
+
+      .image-overlay h3 {
+        font-size: 2.4rem;
+      }
+    }
+
     @media (max-width: 800px) {
-      header h1 {
-        font-size: 2.3rem;
-        padding: 1rem 1.8rem;
+      .footer-links {
+        flex-direction: column;
+        text-align: center;
       }
 
-      .read-more-box {
-        flex: 1 1 100%;
-      }
-
-      .comparison-card {
-        flex: 1 1 100%;
+      nav ul {
+        gap: 1.5rem;
       }
     }
   </style>
@@ -279,9 +353,15 @@
 <nav>
   <div class="logo">Seesuns</div>
   <ul>
-    <li>Home</li>
-    <li>Spring</li>
-    <li>Summer</li>
+    <li>
+    <a href="index.html">Home</a>
+    </li>
+    <li>
+      <a href="spring.html">Spring</a>
+    </li>
+    <li>
+      <a href="summer.html">Summer</a>
+    </li>
   </ul>
 </nav>
 
@@ -291,7 +371,7 @@
 
 <section class="introduction">
   <h2>Discover Summer in Full Bloom</h2>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam cum maiores dolores voluptas, saepe quaerat nemo. Aliquid eaque illum quaerat facere...</p>
+  <p>Here you can discover some summer activities to enjoy the warm season.</p>
 </section>
 
 <section class="activity-grid">
@@ -347,10 +427,9 @@
 <section class="tips-section">
   <h2>Summer Tips</h2>
   <div class="tips-list">
-    <div class="tip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur fuga labore voluptatibus quidem non...</div>
-    <div class="tip">Lorem ipsum dolor sit amet consectetur adipisicing elit. A ratione sapiente cum cupiditate officia recusandae...</div>
-    <div class="tip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores quos suscipit nam necessitatibus accusantium...</div>
-    <div class="tip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure amet architecto rem earum fugit...</div>
+    <div class="tip">The European Health Insurance Card (EHIC) is a free card that allows you to access medically necessary, state-provided healthcare while you are temporarily staying in Finland or other EU countries </div>
+    <div class="tip">In the summer, bring breathable clothing and good shoes for walking.</div>
+    <div class="tip">Sweating before sitting down and staying still makes you cold and wet.</div>
   </div>
 </section>
 
