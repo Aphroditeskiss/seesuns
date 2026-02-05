@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seesuns - Spring</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --orange: #ea5b10;
+      --gold:   #f7b823;
+      --cream:  #f7f4d6;
+      --sage:   #839856;
+      --forest: #0c3323;
+      --spring: #ecfce7;
+      --spring-box: #97b98d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    body {
+      background: var(--spring);
+      color: var(--forest);
+      font-family: "Montserrat", sans-serif;
+      line-height: 1.7;
+    }
+
+    h1, h2, h3 {
+      font-family: "Cinzel", serif;
+      letter-spacing: 0.08em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      background: var(--forest);
+      color: var(--cream);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+
+    }
+
+    .logo {
+      font-family: "Cinzel", serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.15em;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      font-weight: 500;
+    }
+
+    nav li:hover {
+      color: var(--gold);
+      cursor: pointer;
+    }
+
+    header {
+      height: 60vh;
+      background: url("") center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(12, 51, 35, 0.35);
+    }
+
+    header h1 {
+      position: relative;
+      color: var(--cream);
+      font-size: 3.2rem;
+      padding: 1.2rem 2.5rem;
+      background: rgba(12, 51, 35, 0.55);
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .introduction {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: var(--spring-box);
+      border-radius: 25px;
+      text-align: center;
+    }
+
+    .activity-grid {
+      max-width: 1100px;
+      margin: 4rem auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      padding: 0 1.5rem;
+    }
+
+    .activity-block {
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(12, 51, 35, 0.12);
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .activity-block:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(12, 51, 35, 0.2);
+    }
+
+    .activity-block img {
+      width: 100%;
+      height: 220px;
+      border-radius: 15px;
+      margin-bottom: 1.2rem;
+      object-fit: cover;
+    }
+
+    .read-more-section {
+      max-width: 1100px;
+      margin: 4rem auto;
+      display: flex;
+      gap: 2rem;
+      padding: 0 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .read-more-box {
+      flex: 1 1 45%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 25px;
+      height: 260px;
+      cursor: pointer;
+    }
+
+    .read-more-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .read-more-box:hover img {
+      transform: scale(1.06);
+    }
+
+    .read-more-box h3 {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--spring-box);
+      font-size: 2.1rem;
+      background: rgba(12, 51, 35, 0.45);
+      border-radius: 25px;
+    }
+
+    .tips-section {
+      max-width: 900px;
+      margin: 5rem auto;
+      padding: 2.5rem;
+      background: var(--spring-box);
+      border-radius: 25px;
+    }
+
+    .tips-section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .tips-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .tip {
+      background: white;
+      padding: 1.2rem 1.6rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(12, 51, 35, 0.08);
+    }
+
+    .divider {
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 4rem auto;
+    }
+
+    .comparison-block {
+      max-width: 900px;
+      margin: 5rem auto;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .comparison-block h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .comparison-cards {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .comparison-card {
+      flex: 1 1 40%;
+      background: white;
+      padding: 2rem;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(12, 51, 35, 0.12);
+      transition: all 0.3s ease;
+    }
+
+    .comparison-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 40px rgba(12, 51, 35, 0.2);
+    }
+
+    .comparison-card h3 {
+      margin-bottom: 1.2rem;
+      font-size: 1.9rem;
+    }
+
+     footer {
+      background: var(--forest);
+      color: var(--cream);
+      padding: 3rem 1.5rem 2rem;
+      font-size: 0.95rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-logo img {
+      height: 50px;
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-section h4 {
+      font-family: "Cinzel", serif;
+      margin-bottom: 1.1rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section a:hover {
+      color: var(--gold);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .social-icons img {
+      height: 28px;
+      transition: transform 0.25s;
+    }
+
+    .social-icons a:hover img {
+      transform: scale(1.15);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      font-size: 0.85rem;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 900px) {
+      .slideshow-section {
+        flex-direction: column;
+      }
+
+      .image-section {
+        flex-direction: column;
+        padding: 4rem 1rem;
+      }
+
+      .image-overlay {
+        opacity: 1;
+        background: rgba(0,0,0,0.5);
+      }
+
+      .image-overlay h3 {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .footer-links {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav ul {
+        gap: 1.5rem;
+      }
+
+      .logo {
+        margin-left: 100px; 
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Seesuns</div>
+  <ul>
+    <li>
+    <a href="index.html">Home</a>
+    </li>
+    <li>
+      <a href="spring.html">Spring</a>
+    </li>
+    <li>
+      <a href="summer.html">Summer</a>
+    </li>
+  </ul>
+</nav>
+
+<header>
+  <h1>Spring Activities</h1>
+</header>
+
+<section class="introduction">
+  <h2>Lorem ipsum dolor sit amet consectetur </h2>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem laudantium aliquid ducimus possimus quibusdam dicta optio provident rerum assumenda molestias eos explicabo, eligendi inventore iure at labore porro placeat facere.</p>
+</section>
+
+<section class="activity-grid">
+  <div class="activity-block">
+    <img src="1.jpg" alt="Activity 1">
+    <h3>Activity 1</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis quisquam doloribus aliquam nostrum nisi odio...</p>
+  </div>
+  <div class="activity-block">
+    <img src="2.jpg" alt="Activity 2">
+    <h3>Activity 2</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus culpa optio expedita veniam ab totam accusamus...</p>
+  </div>
+  <div class="activity-block">
+    <img src="3.jpg" alt="Activity 3">
+    <h3>Activity 3</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore cum accusamus omnis odio mollitia eveniet...</p>
+  </div>
+  <div class="activity-block">
+    <img src="4.jpg" alt="Activity 4">
+    <h3>Activity 4</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa tempora consectetur perferendis cum odio cupiditate...</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="read-more-section">
+  <a href="page1.html" class="read-more-box">
+    <img src="more1.jpg" alt="">
+    <h3>Read More</h3>
+  </a>
+  <a href="page2.html" class="read-more-box">
+    <img src="more2.jpg" alt="">
+    <h3>Read More</h3>
+  </a>
+</section>
+
+<section class="comparison-block">
+  <h2>Helmond vs Rovaniemi</h2>
+  <div class="comparison-cards">
+    <div class="comparison-card">
+      <h3>Helmond</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel urna quis nulla semper pretium.</p>
+    </div>
+    <div class="comparison-card">
+      <h3>Rovaniemi</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tips-section">
+  <h2>Spring Tips</h2>
+  <div class="tips-list">
+    <div class="tip">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti dolor eveniet eligendi laboriosam illo quibusdam rerum dolorem mollitia tempore. Magnam at consectetur magni voluptate obcaecati assumenda reiciendis fugit natus aperiam?</div>
+    <div class="tip">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores, quos! Eos rerum alias officiis assumenda placeat incidunt dolorem porro at nulla dolore harum a commodi nemo vero, minima similique esse!</div>
+    <div class="tip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit laboriosam sed natus veritatis non nemo neque vel excepturi recusandae omnis ad aperiam a provident, saepe facilis sapiente nisi voluptas! Autem!</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="logo_Seesuns.svg" alt="Seesuns Logo">
+      <p>Discover the beauty of the seasons.</p>
+    </div>
+
+    <div class="footer-links">
+      <div class="footer-section">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><img src="facebook.png" alt="Facebook"></a>
+          <a href="#"><img src="instagram.png" alt="Instagram"></a>
+          <a href="#"><img src="twitter.png" alt="Twitter"></a>
+          <a href="#"><img src="pinterest.png" alt="Pinterest"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Seesuns. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
