@@ -12,9 +12,9 @@
   <style>
     :root {
       --orange: #ea5b10;
-      --gold:   #f7b823;
-      --cream:  #f7f4d6;
-      --sage:   #839856;
+      --gold: #f7b823;
+      --cream: #f7f4d6;
+      --sage: #839856;
       --forest: #0c3323;
       --summer-bg: #fff4d6;
       --summer-overlay: rgba(247, 184, 35, 0.18);
@@ -115,6 +115,21 @@
       padding: 0 1.5rem;
     }
 
+    .activity-link {
+      display: inline-block;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      background: var(--orange);
+      color: white;
+      padding: 0.8rem 1.2rem;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+
+    .activity-link:hover {
+      background: var(--forest);
+    }
+
     .activity-block {
       background: rgba(255, 255, 255, 0.92);
       border-radius: 20px;
@@ -212,88 +227,169 @@
       margin: 4rem auto;
     }
 
-.comparison-block {
-  max-width: 1000px;
-  margin: 5rem auto;
-  text-align: center;
-  padding: 0 1rem;
-}
+    .comparison-block {
+      max-width: 1000px;
+      margin: 5rem auto;
+      text-align: center;
+      padding: 0 1rem;
+    }
 
-.comparison-block h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
+    .comparison-block h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
 
-.comparison-block > p {
-  max-width: 700px;
-  margin: 0 auto 2.5rem;
-}
+    .comparison-block > p {
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+    }
 
-.comparison-cards {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-}
+    .comparison-cards {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+    }
 
-.comparison-card {
-  flex: 1 1 360px;
-  max-width: 430px;
-  background: linear-gradient(180deg, white, #fffaf0);
-  padding: 2.2rem;
-  border-radius: 28px;
-  box-shadow: 0 12px 30px rgba(12, 51, 35, 0.12);
-  overflow: hidden;
-  position: relative;
-  transform: translateY(0);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
+    .comparison-card {
+      flex: 1 1 360px;
+      max-width: 430px;
+      background: linear-gradient(180deg, white, #fffaf0);
+      padding: 2.2rem;
+      border-radius: 28px;
+      box-shadow: 0 12px 30px rgba(12, 51, 35, 0.12);
+      overflow: hidden;
+      position: relative;
+      transform: translateY(0);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
 
-.comparison-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 45px rgba(12, 51, 35, 0.2);
-}
+    .comparison-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 45px rgba(12, 51, 35, 0.2);
+    }
 
-.comparison-card h3 {
-  margin-bottom: 0.8rem;
-  font-size: 1.9rem;
-  color: var(--forest);
-}
+    .comparison-card h3 {
+      margin-bottom: 0.8rem;
+      font-size: 1.9rem;
+      color: var(--forest);
+    }
 
-.comparison-card p {
-  margin-bottom: 1rem;
-}
+    .comparison-card p {
+      margin-bottom: 1rem;
+    }
 
-.extra-content {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transform: translateY(15px);
-  transition: max-height 0.6s ease, opacity 0.4s ease, transform 0.4s ease;
-}
+    .extra-content {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transform: translateY(15px);
+      transition: max-height 0.6s ease, opacity 0.4s ease, transform 0.4s ease;
+    }
 
-.comparison-card:hover .extra-content {
-  max-height: 400px;
-  opacity: 1;
-  transform: translateY(0);
-  margin-top: 1.3rem;
-}
+    .comparison-card:hover .extra-content {
+      max-height: 400px;
+      opacity: 1;
+      transform: translateY(0);
+      margin-top: 1.3rem;
+    }
 
-.extra-content ul {
-  list-style: none;
-  padding: 0;
-}
+    .extra-content ul {
+      list-style: none;
+      padding: 0;
+    }
 
-.extra-content li {
-  background: var(--summer-overlay);
-  margin-bottom: 0.8rem;
-  padding: 0.9rem 1rem;
-  border-radius: 15px;
-  font-weight: 500;
-}
+    .extra-content li {
+      background: var(--summer-overlay);
+      margin-bottom: 0.8rem;
+      padding: 0.9rem 1rem;
+      border-radius: 15px;
+      font-weight: 500;
+    }
 
-     footer {
+    .activity-button {
+      width: 100%;
+      border: none;
+      background: var(--summer-overlay);
+      color: var(--forest);
+      margin-bottom: 0.8rem;
+      padding: 0.9rem 1rem;
+      border-radius: 15px;
+      font-weight: 600;
+      font-family: "Montserrat", sans-serif;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .activity-button:hover {
+      background: var(--gold);
+      transform: translateX(5px);
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(12, 51, 35, 0.75);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      background: white;
+      max-width: 650px;
+      width: 100%;
+      border-radius: 25px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .lightbox-content img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+    }
+
+    .lightbox-body {
+      padding: 2rem;
+    }
+
+    .lightbox-body h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .lightbox-body h4 {
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+
+    .lightbox-body ul {
+      margin-top: 1rem;
+      padding-left: 1.2rem;
+    }
+
+    .close-lightbox {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: white;
+      border: none;
+      font-size: 1.8rem;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    footer {
       background: var(--forest);
       color: var(--cream);
       padding: 3rem 1.5rem 2rem;
@@ -354,7 +450,7 @@
     .footer-bottom {
       text-align: center;
       padding-top: 1.5rem;
-      border-top: 1px solid rgba(255,255,255,0.15);
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
       font-size: 0.85rem;
     }
 
@@ -371,7 +467,7 @@
 
       .image-overlay {
         opacity: 1;
-        background: rgba(0,0,0,0.5);
+        background: rgba(0, 0, 0, 0.5);
       }
 
       .image-overlay h3 {
@@ -397,7 +493,7 @@
   <div class="logo">Seesuns</div>
   <ul>
     <li>
-    <a href="index.html">Home</a>
+      <a href="index.html">Home</a>
     </li>
     <li>
       <a href="spring.html">Spring</a>
@@ -450,15 +546,12 @@
 
 <div class="divider"></div>
 
-
 <section class="comparison-block">
   <h2>Helmond & Rovaniemi</h2>
   <p>
     Both cities are great places to enjoy summer. Hover over each card to discover
     how you can enjoy swimming, canoeing, and outdoor terraces in both destinations.
   </p>
-
-  <h2>Helmond and Rovaniemi</h2>
   <div class="comparison-cards">
 
     <div class="comparison-card">
@@ -468,11 +561,17 @@
       </p>
 
       <div class="extra-content">
-        <ul>
-          <li>Swimming at local pools or nearby recreational water areas</li>
-          <li>Canoeing along canals and peaceful water routes</li>
-          <li>Enjoying outdoor terraces in the city centre</li>
-        </ul>
+        <button class="activity-button" onclick="openLightbox('helmondSwimming')">
+          Swimming
+        </button>
+
+        <button class="activity-button" onclick="openLightbox('helmondCanoeing')">
+          Canoeing
+        </button>
+
+        <button class="activity-button" onclick="openLightbox('helmondTerraces')">
+          Outdoor terraces
+        </button>
       </div>
     </div>
 
@@ -483,11 +582,17 @@
       </p>
 
       <div class="extra-content">
-        <ul>
-          <li>Swimming in lakes, rivers, or outdoor summer spots</li>
-          <li>Canoeing on calm rivers surrounded by nature</li>
-          <li>Relaxing on outdoor terraces during bright summer evenings</li>
-        </ul>
+        <button class="activity-button" onclick="openLightbox('helmondSwimming')">
+          Swimming
+        </button>
+
+        <button class="activity-button" onclick="openLightbox('helmondCanoeing')">
+          Canoeing
+        </button>
+
+        <button class="activity-button" onclick="openLightbox('helmondTerraces')">
+          Outdoor terraces
+        </button>
       </div>
     </div>
 
@@ -570,5 +675,115 @@
   </div>
 </footer>
 
+<div class="lightbox" id="activityLightbox">
+  <div class="lightbox-content">
+    <button class="close-lightbox" onclick="closeLightbox()">×</button>
+    <img id="lightboxImage" src="" alt="">
+    <div class="lightbox-body">
+      <h2 id="lightboxTitle"></h2>
+      <h4 id="lightboxLocation"></h4>
+      <p id="lightboxText"></p>
+      <a
+        id="lightboxLink"
+        target="_blank"
+        class="activity-link">
+      </a>
+      <ul id="lightboxList"></ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  const activities = {
+    helmondSwimming: {
+      image: "",
+      title: "",
+      location: "",
+      text: "",
+      link: "",
+      linkText: "",
+      tips: []
+    },
+    helmondCanoeing: {
+      image: "",
+      title: "",
+      location: "",
+      text: "",
+      link: "",
+      linkText: "",
+      tips: []
+    },
+    helmondTerraces: {
+      image: "",
+      title: "",
+      location: "",
+      text: "",
+      link: "",
+      linkText: "",
+      tips: []
+    },
+    rovaniemiSwimming: {
+      image: "",
+      title: "",
+      location: "",
+      text: "",
+      link: "",
+      linkText: "",
+      tips: []
+    },
+    rovaniemiCanoeing: {
+      image: "",
+      title: "",
+      location: "",
+      text: "",
+      link: "",
+      linkText: "",
+      tips: []
+    },
+    rovaniemiTerraces: {
+      image: "",
+      title: "",
+      location: "",
+      text: "",
+      link: "",
+      linkText: "",
+      tips: []
+    }
+  };
+
+  function openLightbox(activityName) {
+    const activity = activities[activityName];
+
+    document.getElementById("lightboxImage").src = activity.image;
+    document.getElementById("lightboxTitle").textContent = activity.title;
+    document.getElementById("lightboxLocation").textContent = activity.location;
+    document.getElementById("lightboxText").textContent = activity.text;
+    document.getElementById("lightboxLink").href = activity.link;
+    document.getElementById("lightboxLink").textContent = activity.linkText;
+
+    const list = document.getElementById("lightboxList");
+    list.innerHTML = "";
+
+    activity.tips.forEach(function(tip) {
+      const li = document.createElement("li");
+      li.textContent = tip;
+      list.appendChild(li);
+    });
+
+    document.getElementById("activityLightbox").classList.add("active");
+  }
+
+  function closeLightbox() {
+    document.getElementById("activityLightbox").classList.remove("active");
+  }
+
+  window.onclick = function(event) {
+    const lightbox = document.getElementById("activityLightbox");
+
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  };
+</script>
 </body>
 </html>
