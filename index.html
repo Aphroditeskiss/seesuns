@@ -204,53 +204,57 @@
       align-items: center;
     }
 
-    .slideshow {
-      position: relative;
-      width: 100%;
-      max-width: 800px;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      border-radius: 25px;
-    }
+.slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(12, 51, 35, 0.18);
+}
 
-    .slideshow-section .explanation {
-      flex: 1;
-      background: rgba(131, 152, 86, 0.18);
-      padding: 2rem;
-      border-radius: 25px;
-    }
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 1s ease, transform 1.2s ease;
+}
 
-    .slide {
-      display: none;
-      width: 100%;
-      height: 100%;
-    }
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
 
-    .slide.active {
-      display: block;
-    }
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+.arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
+  font-size: 2.4rem;
+  color: var(--cream);
+  background: rgba(12, 51, 35, 0.45);
+  padding: 0.4rem 0.9rem;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+}
 
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 2.8rem;
-      color: white;
-      background: rgba(0,0,0,0.3);
-      padding: 0.4rem 0.9rem;
-      border-radius: 50%;
-      cursor: pointer;
-      user-select: none;
-    }
+.arrow:hover {
+  background: var(--gold);
+  color: var(--forest);
+}
 
-    .arrow.left  { left: 16px; }
-    .arrow.right { right: 16px; }
+.arrow.left { left: 16px; }
+.arrow.right { right: 16px; }
 
     footer {
       background: var(--forest);
@@ -525,21 +529,42 @@
 
 <script>
   let current = 0;
-  const slides = document.querySelectorAll('.slide');
+  const slides = document.querySelectorAll(".slide");
+  let autoSlide;
 
   function showSlide(n) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    slides[n].classList.add('active');
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[n].classList.add("active");
   }
 
   function changeSlide(step) {
     current += step;
-    if (current < 0) current = slides.length - 1;
-    if (current >= slides.length) current = 0;
+
+    if (current < 0) {
+      current = slides.length - 1;
+    }
+
+    if (current >= slides.length) {
+      current = 0;
+    }
+
     showSlide(current);
+    resetAutoSlide();
+  }
+
+  function startAutoSlide() {
+    autoSlide = setInterval(function() {
+      changeSlide(1);
+    }, 4000);
+  }
+
+  function resetAutoSlide() {
+    clearInterval(autoSlide);
+    startAutoSlide();
   }
 
   showSlide(current);
+  startAutoSlide();
 </script>
 
 </body>
