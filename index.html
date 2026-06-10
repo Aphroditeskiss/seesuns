@@ -262,6 +262,36 @@
       font-size: 0.85rem;
     }
 
+    .features-section {
+  max-width: 1100px;
+  margin: 5rem auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.features-section h2 {
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(12, 51, 35, 0.12);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(12, 51, 35, 0.2);
+}
+
     /* Mobile adjustments */
     @media (max-width: 900px) {
       .slideshow-section {
@@ -333,12 +363,38 @@
   </a>
 </section>
 
+<section class="features-section">
+  <h2>Why Seesuns?</h2>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <h3>Local Experiences</h3>
+      <p>Discover activities that show what Helmond and Rovaniemi are really like.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Seasonal Travel</h3>
+      <p>Explore how spring and summer change the atmosphere of each destination.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Affordable Ideas</h3>
+      <p>Find activities that are fun, memorable, and accessible for different budgets.</p>
+    </div>
+  </div>
+</section>
+
 <div class="divider"></div>
 
 <section class="slideshow-section">
-  <div class="explanation">
-    <p>Discover affordable activities while learning about local culture along the way. Our goal is to guide you toward experiences that leave a lasting impression on your heart, even long after the journey is over.</p>
-  </div>
+<div class="explanation">
+  <h2>A Journey Through Light Seasons</h2>
+  <p>
+    Seesuns helps you compare two very different places during their brightest seasons.
+    From Helmond’s relaxed parks and terraces to Rovaniemi’s northern nature and long daylight,
+    every page gives you ideas for meaningful seasonal experiences.
+  </p>
+</div>
 
   <div class="slideshow">
     <div class="slide active"><img src="slide1.jpg" alt=""></div>
