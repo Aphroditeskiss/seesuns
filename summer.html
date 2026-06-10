@@ -582,17 +582,20 @@
       </p>
 
       <div class="extra-content">
-        <button class="activity-button" onclick="openLightbox('helmondSwimming')">
-          Swimming
-        </button>
+<button class="activity-button"
+        onclick="event.stopPropagation(); openLightbox('rovaniemiSwimming')">
+  Swimming
+</button>
 
-        <button class="activity-button" onclick="openLightbox('helmondCanoeing')">
-          Canoeing
-        </button>
+<button class="activity-button"
+        onclick="event.stopPropagation(); openLightbox('rovaniemiCanoeing')">
+  Canoeing
+</button>
 
-        <button class="activity-button" onclick="openLightbox('helmondTerraces')">
-          Outdoor terraces
-        </button>
+<button class="activity-button"
+        onclick="event.stopPropagation(); openLightbox('rovaniemiTerraces')">
+  Outdoor terraces
+</button>
       </div>
     </div>
 
@@ -694,62 +697,97 @@
 </div>
 
 <script>
-  const activities = {
-    helmondSwimming: {
-      image: "",
-      title: "Swimming pool de Braak",
-      location: "Helmond station",
-      text: "Blah blah blah",
-      link: "https://www.optisport.nl/zwembad-de-braak",
-      linkText: "Open link here",
-      tips: []
-    },
-    helmondCanoeing: {
-      image: "",
-      title: "",
-      location: "",
-      text: "",
-      link: "",
-      linkText: "",
-      tips: []
-    },
-    helmondTerraces: {
-      image: "",
-      title: "",
-      location: "",
-      text: "",
-      link: "",
-      linkText: "",
-      tips: []
-    },
-    rovaniemiSwimming: {
-      image: "",
-      title: "",
-      location: "",
-      text: "",
-      link: "",
-      linkText: "",
-      tips: []
-    },
-    rovaniemiCanoeing: {
-      image: "",
-      title: "",
-      location: "",
-      text: "",
-      link: "",
-      linkText: "",
-      tips: []
-    },
-    rovaniemiTerraces: {
-      image: "",
-      title: "",
-      location: "",
-      text: "",
-      link: "",
-      linkText: "",
-      tips: []
-    }
-  };
+const activities = {
+  helmondSwimming: {
+    image: "helmond-swimming.jpg",
+    title: "Swimming Pool De Braak",
+    location: "Rembrandtlaan 16, Helmond",
+    text: "Swimming Pool De Braak is a modern indoor swimming pool in Helmond. You can go lane swimming, recreational swimming, or enjoy a relaxed swimming day with friends or family.",
+    link: "https://www.optisport.nl/zwembad-de-braak",
+    linkText: "Open Swimming Pool De Braak website",
+    tips: [
+      "Bring swimwear and a towel",
+      "Check opening hours before visiting",
+      "Bring slippers or sandals",
+      "Do not forget sunscreen if you continue your day outside"
+    ]
+  },
+
+  helmondCanoeing: {
+    image: "helmond-canoeing.jpg",
+    title: "Canoeing with HWC De Helmvaarders",
+    location: "Kanaaldijk Zuid Oost 50, Helmond",
+    text: "HWC De Helmvaarders is a canoeing and watersport club in Helmond. It is a good place to learn more about canoeing, recreational paddling, and water sport activities.",
+    link: "https://www.helmvaarders.nl/",
+    linkText: "Open HWC De Helmvaarders website",
+    tips: [
+      "Wear clothes that may get wet",
+      "Bring a dry set of clothing",
+      "Use sunscreen on sunny days",
+      "Keep your phone in a waterproof bag"
+    ]
+  },
+
+  helmondTerraces: {
+    image: "helmond-terrace.jpg",
+    title: "Outdoor Terraces in Helmond",
+    location: "Helmond city centre",
+    text: "Helmond has cosy terraces in the city centre, around the Markt, and near the water. It is a relaxed way to enjoy summer, have a drink, eat something, and experience the local atmosphere.",
+    link: "https://www.visithelmond.nl/en/activities/food-and-drinks",
+    linkText: "Open Helmond food and drinks guide",
+    tips: [
+      "Bring sunglasses",
+      "Go in the afternoon or early evening",
+      "Check if you need a reservation",
+      "Try a terrace near the canal or city centre"
+    ]
+  },
+
+  rovaniemiSwimming: {
+    image: "rovaniemi-swimming.jpg",
+    title: "Swimming in Rovaniemi",
+    location: "Ounaskoski Beach or small ponds near Santa Claus Village",
+    text: "In summer, Rovaniemi has public swimming places such as centre beaches, riverside spots, and small ponds. It is a refreshing activity during bright summer days.",
+    link: "https://international.rovaniemi.fi/Services/Beaches-and-Swimming-Areas/b78f98e8-8235-4d60-949f-49084b3747f3",
+    linkText: "Open Rovaniemi swimming areas",
+    tips: [
+      "Bring a towel and swimwear",
+      "Bring a hoodie or cardigan for after swimming",
+      "Check the weather before going",
+      "Use sunscreen and sunglasses"
+    ]
+  },
+
+  rovaniemiCanoeing: {
+    image: "rovaniemi-canoeing.jpg",
+    title: "Canoeing in Rovaniemi",
+    location: "Rivers and nature routes around Rovaniemi",
+    text: "Canoeing in Rovaniemi is a peaceful way to experience Lapland’s summer nature. You can paddle on calm water, enjoy the long daylight, and see the landscape from a different perspective.",
+    link: "https://etiainen.fi/en",
+    linkText: "Open Rovaniemi routes and outdoor activities",
+    tips: [
+      "Wear clothes that can get wet",
+      "Bring waterproof outerwear",
+      "Use mosquito repellent",
+      "Bring a waterproof bag for your phone"
+    ]
+  },
+
+  rovaniemiTerraces: {
+    image: "rovaniemi-terrace.jpg",
+    title: "Outdoor Terraces in Rovaniemi",
+    location: "Rovaniemi city centre",
+    text: "During summer, Rovaniemi has outdoor terraces, pubs, bars, and live music spots where you can enjoy the bright northern evenings. It is a relaxing way to experience local city life.",
+    link: "https://tapahtumat.rovaniemi.fi/en-FI",
+    linkText: "Open Rovaniemi events calendar",
+    tips: [
+      "Bring a light jacket for the evening",
+      "Check local events for live music",
+      "Visit during the long summer daylight",
+      "Use local buses, bikes, or scooters to get around"
+    ]
+  }
+};
 
   function openLightbox(activityName) {
     const activity = activities[activityName];
