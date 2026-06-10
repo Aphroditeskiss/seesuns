@@ -18,6 +18,8 @@
       --forest: #0c3323;
       --spring: #ecfce7;
       --spring-box: #97b98d;
+      --spring-bg: #ecfce7;
+--spring-overlay: rgba(131, 152, 86, 0.22);
     }
 
     * {
@@ -287,13 +289,107 @@
 }
 
 .extra-content li {
-  background: var(--summer-overlay);
+  background: var(--spring-overlay);
   margin-bottom: 0.8rem;
   padding: 0.9rem 1rem;
   border-radius: 15px;
   font-weight: 500;
 }
+.activity-button {
+  width: 100%;
+  border: none;
+  background: var(--spring-overlay);
+  color: var(--forest);
+  margin-bottom: 0.8rem;
+  padding: 0.9rem 1rem;
+  border-radius: 15px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  text-align: left;
+}
 
+.activity-button:hover {
+  background: var(--spring-box);
+  transform: translateX(5px);
+}
+
+.activity-link {
+  display: inline-block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background: var(--forest);
+  color: var(--cream);
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.activity-link:hover {
+  background: var(--orange);
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 51, 35, 0.75);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-content {
+  background: white;
+  max-width: 650px;
+  width: 100%;
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.lightbox-content img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.lightbox-body {
+  padding: 2rem;
+}
+
+.lightbox-body h2 {
+  margin-bottom: 0.5rem;
+}
+
+.lightbox-body h4 {
+  color: var(--orange);
+  margin-bottom: 1rem;
+}
+
+.lightbox-body ul {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+}
+
+.close-lightbox {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: white;
+  border: none;
+  font-size: 1.8rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+}
     footer {
       background: var(--forest);
       color: var(--cream);
@@ -449,56 +545,91 @@
 <div class="divider"></div>
 
 <section class="comparison-block">
-  <h2>Helmond and Rovaniemi</h2>
+  <h2>Helmond & Rovaniemi</h2>
+  <p>
+    Spring is a season of fresh air, longer days, and new outdoor experiences.
+    Hover over each card to discover spring activities in both destinations.
+  </p>
 
   <div class="comparison-cards">
 
     <div class="comparison-card">
       <h3>Helmond</h3>
       <p>
-        A relaxed spring city with canals, parks, cafés, and calm outdoor spots.
+        A calm spring city with parks, cycling routes, terraces, and historic places.
       </p>
 
       <div class="extra-content">
-        <ul>
-          <li>PLACEHOLDER!</li>
-        </ul>
+        <button class="activity-button" onclick="openLightbox('helmondCycling')">
+          Cycling
+        </button>
+
+        <button class="activity-button" onclick="openLightbox('helmondWalking')">
+          Walking
+        </button>
+
+        <button class="activity-button" onclick="openLightbox('helmondCastle')">
+          Kasteel Helmond
+        </button>
       </div>
     </div>
 
     <div class="comparison-card">
       <h3>Rovaniemi</h3>
       <p>
-        A northern spring destination with rivers, nature, long daylight, and fresh air.
+        A northern spring destination where snow slowly melts and daylight returns.
       </p>
 
       <div class="extra-content">
-        <ul>
-          <li>PLACEHOLDER!</li>
-        </ul>
+        <button class="activity-button" onclick="openLightbox('rovaniemiHiking')">
+          Ounasvaara Trails
+        </button>
+
+        <button class="activity-button" onclick="openLightbox('rovaniemiAnimals')">
+          Santa’s Pets
+        </button>
+
+        <button class="activity-button" onclick="openLightbox('rovaniemiSkiing')">
+          Spring Skiing
+        </button>
       </div>
     </div>
 
   </div>
 </section>
 
+<section class="introduction">
+  <h2>Why Visit in Spring?</h2>
+  <p>
+    Spring gives both cities a fresh and peaceful atmosphere. Helmond becomes greener
+    with parks, cycling paths, and outdoor cafés, while Rovaniemi slowly changes from
+    snowy landscapes into bright northern spring. It is a great season for walking,
+    exploring, and seeing how nature changes.
+  </p>
+</section>
+
 <section class="tips-section">
-  <h2>Spring Tips</h2>
+  <h2>Spring Travel Tips</h2>
+
   <div class="tips-list">
     <div class="tip">
-      The European Health Insurance card (EHIC) is a free card that allows you to access medically necessary
-      state-provided healthcare while you are staying in another european country
+      Bring warm and waterproof clothing. Spring weather can change quickly, especially in Rovaniemi.
     </div>
+
     <div class="tip">
-      To stay warm its recommended to wear warm & waterproof clothing as it can still get quite cold during the spring!
-      Being on the move actively ensures that you stay warm. Sweating and staying still with alot of clothing can actually
-      get you cold.
+      Wear comfortable walking shoes, because many activities involve parks, trails, city centres, or nature routes.
     </div>
+
     <div class="tip">
-      Locals are happy to help! So ask locals if you are confused and need help with something!
+      Dress in layers. It is easier to take clothes off when you get warm than to add clothes you did not bring.
     </div>
+
     <div class="tip">
-      Bring good walking shoes and breathable clothing as you can expect to walk around alot.
+      Bring your European Health Insurance Card when travelling within Europe.
+    </div>
+
+    <div class="tip">
+      Ask locals or tourist information centres about current safety notices, routes, and opening times.
     </div>
   </div>
 </section>
@@ -542,6 +673,149 @@
     </div>
   </div>
 </footer>
+<div class="lightbox" id="activityLightbox">
+  <div class="lightbox-content">
+    <button class="close-lightbox" onclick="closeLightbox()">×</button>
+    <img id="lightboxImage" src="" alt="">
 
+    <div class="lightbox-body">
+      <h2 id="lightboxTitle"></h2>
+      <h4 id="lightboxLocation"></h4>
+      <p id="lightboxText"></p>
+
+      <a id="lightboxLink" target="_blank" class="activity-link"></a>
+
+      <ul id="lightboxList"></ul>
+    </div>
+  </div>
+</div>
+<script>
+  const activities = {
+    helmondCycling: {
+      image: "SpringCycling.jpg",
+      title: "Cycling in Helmond",
+      location: "Parks, canals, and city cycling routes",
+      text: "Spring is a great time to explore Helmond by bike. You can cycle through green areas, along canals, and around the city while enjoying fresh air and lighter days.",
+      link: "https://www.visithelmond.nl/en/activities/cycling",
+      linkText: "Open Helmond cycling information",
+      tips: [
+        "Wear layers because spring weather can change",
+        "Bring water for longer routes",
+        "Check your bike before leaving",
+        "Use comfortable shoes"
+      ]
+    },
+
+    helmondWalking: {
+      image: "SpringHiking.jpg",
+      title: "Spring Walks in Helmond",
+      location: "Warande Park and city walking routes",
+      text: "Walking is one of the easiest ways to enjoy Helmond in spring. Parks, canals, and city routes become greener and more peaceful during this season.",
+      link: "https://www.visithelmond.nl/en/activities/walking",
+      linkText: "Open Helmond walking information",
+      tips: [
+        "Bring comfortable walking shoes",
+        "Carry a light jacket",
+        "Bring a small bottle of water",
+        "Check the weather before leaving"
+      ]
+    },
+
+    helmondCastle: {
+      image: "terras.jpg",
+      title: "Kasteel Helmond",
+      location: "Kasteelplein 1, Helmond",
+      text: "Kasteel Helmond is one of the most recognisable historic places in the city. In spring, it is a nice cultural stop during a walk through the centre.",
+      link: "https://museumhelmond.nl/",
+      linkText: "Open Museum Helmond website",
+      tips: [
+        "Check opening hours before visiting",
+        "Combine it with a walk through the centre",
+        "Bring your camera",
+        "Look for nearby cafés after your visit"
+      ]
+    },
+
+    rovaniemiHiking: {
+      image: "SpringHiking.jpg",
+      title: "Ounasvaara Trails",
+      location: "Ounasvaara, Rovaniemi",
+      text: "Ounasvaara offers walking and outdoor routes close to Rovaniemi. In spring, the area can still be snowy or wet, so it is important to dress properly.",
+      link: "https://www.rovaniemi.fi/Vapaa-aika/Liikuntapalvelut/Ounasvaaran-reitit",
+      linkText: "Open Ounasvaara route information",
+      tips: [
+        "Wear waterproof shoes",
+        "Bring warm layers",
+        "Check trail conditions before going",
+        "Be careful on icy or wet paths"
+      ]
+    },
+
+    rovaniemiAnimals: {
+      image: "SpringAnimals.jpg",
+      title: "Santa’s Pets",
+      location: "Near Santa Claus Village, Rovaniemi",
+      text: "Santa’s Pets is a small animal park near Santa Claus Village. It is a calm spring activity where visitors can meet animals and enjoy a relaxed outdoor visit.",
+      link: "https://santaspets.fi/fi/",
+      linkText: "Open Santa’s Pets website",
+      tips: [
+        "Check opening times before visiting",
+        "Dress warmly if visiting early in spring",
+        "Bring a camera",
+        "Respect the animals and follow the rules"
+      ]
+    },
+
+    rovaniemiSkiing: {
+      image: "SpringCycling.jpg",
+      title: "Spring Skiing",
+      location: "Santasport, Rovaniemi",
+      text: "In early spring, skiing may still be possible around Rovaniemi. Santasport offers equipment rental, making it easier to try winter-style activities before the snow disappears.",
+      link: "https://twice.shop/santasport/shop",
+      linkText: "Open Santasport rental shop",
+      tips: [
+        "Wear waterproof outerwear",
+        "Bring warm clothing",
+        "Avoid sweating too much before resting",
+        "Check snow conditions before planning"
+      ]
+    }
+  };
+
+  function openLightbox(activityName) {
+    const activity = activities[activityName];
+
+    document.getElementById("lightboxImage").src = activity.image;
+    document.getElementById("lightboxTitle").textContent = activity.title;
+    document.getElementById("lightboxLocation").textContent = activity.location;
+    document.getElementById("lightboxText").textContent = activity.text;
+    document.getElementById("lightboxLink").href = activity.link;
+    document.getElementById("lightboxLink").textContent = activity.linkText;
+
+    const list = document.getElementById("lightboxList");
+    list.innerHTML = "";
+
+    activity.tips.forEach(function(tip) {
+      const li = document.createElement("li");
+      li.textContent = tip;
+      list.appendChild(li);
+    });
+
+    document.getElementById("activityLightbox").classList.add("active");
+  }
+
+  function closeLightbox() {
+    document.getElementById("activityLightbox").classList.remove("active");
+  }
+
+  window.onclick = function(event) {
+    const lightbox = document.getElementById("activityLightbox");
+
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  };
+</script>
+  
 </body>
 </html>
