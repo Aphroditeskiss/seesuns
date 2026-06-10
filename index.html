@@ -90,48 +90,103 @@
       text-align: center;
     }
 
-    .image-section {
-      margin: 4rem auto;
-      display: flex;
-      gap: 2rem;
-      padding: 6rem 1.5rem;
-      background: var(--sage) url("some-bg.jpg") center/cover;
-    }
+.image-section {
+  max-width: 1200px;
+  margin: 5rem auto;
+  display: flex;
+  gap: 2rem;
+  padding: 0 1.5rem;
+}
 
-    .image-box {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
-      border-radius: 50px;
-      height: 500px;
-    }
+.image-box {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 35px;
+  height: 520px;
+  box-shadow: 0 15px 40px rgba(12, 51, 35, 0.18);
+}
 
-    .image-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 25px;
-      display: block;
-    }
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+}
 
-    .image-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-    }
+.image-box:hover img {
+  transform: scale(1.08);
+}
 
-    .image-box:hover .image-overlay {
-      opacity: 1;
-    }
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(12, 51, 35, 0.95),
+    rgba(12, 51, 35, 0.55),
+    rgba(12, 51, 35, 0.15)
+  );
 
-    .image-overlay h3 {
-      color: var(--cream);
-      font-size: 2.1rem;
-    }
+  display: flex;
+  align-items: flex-end;
+  padding: 2.5rem;
+}
+
+.image-content {
+  color: var(--cream);
+  transform: translateY(25px);
+}
+
+.image-box:hover .image-content {
+  transform: translateY(0);
+}
+
+.image-content span {
+  display: inline-block;
+  background: rgba(247, 244, 214, 0.2);
+  border: 1px solid rgba(247, 244, 214, 0.4);
+  color: var(--cream);
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.image-content h3 {
+  font-size: 2.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.image-content p {
+  max-width: 420px;
+  margin-bottom: 1.2rem;
+  opacity: 0;
+}
+
+.image-box:hover .image-content p {
+  opacity: 1;
+}
+
+.image-button {
+  display: inline-block;
+  background: var(--cream);
+  color: var(--forest);
+  padding: 0.75rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  opacity: 0;
+}
+
+.image-box:hover .image-button {
+  opacity: 1;
+}
+
+.image-button:hover {
+  background: var(--cream);
+}
 
     .divider {
       width: 120px;
@@ -149,53 +204,57 @@
       align-items: center;
     }
 
-    .slideshow {
-      position: relative;
-      width: 100%;
-      max-width: 800px;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      border-radius: 25px;
-    }
+.slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(12, 51, 35, 0.18);
+}
 
-    .slideshow-section .explanation {
-      flex: 1;
-      background: rgba(131, 152, 86, 0.18);
-      padding: 2rem;
-      border-radius: 25px;
-    }
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 1s ease, transform 1.2s ease;
+}
 
-    .slide {
-      display: none;
-      width: 100%;
-      height: 100%;
-    }
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
 
-    .slide.active {
-      display: block;
-    }
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+.arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
+  font-size: 2.4rem;
+  color: var(--cream);
+  background: rgba(12, 51, 35, 0.45);
+  padding: 0.4rem 0.9rem;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+}
 
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 2.8rem;
-      color: white;
-      background: rgba(0,0,0,0.3);
-      padding: 0.4rem 0.9rem;
-      border-radius: 50%;
-      cursor: pointer;
-      user-select: none;
-    }
+.arrow:hover {
+  background: var(--gold);
+  color: var(--forest);
+}
 
-    .arrow.left  { left: 16px; }
-    .arrow.right { right: 16px; }
+.arrow.left { left: 16px; }
+.arrow.right { right: 16px; }
 
     footer {
       background: var(--forest);
@@ -262,6 +321,36 @@
       font-size: 0.85rem;
     }
 
+    .features-section {
+  max-width: 1100px;
+  margin: 5rem auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.features-section h2 {
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(12, 51, 35, 0.12);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(12, 51, 35, 0.2);
+}
+
     /* Mobile adjustments */
     @media (max-width: 900px) {
       .slideshow-section {
@@ -323,22 +412,70 @@
 
 <section class="image-section">
   <a href="spring.html" class="image-box">
-    <img src="lente.jpg" alt="Spring">
-    <div class="image-overlay"><h3>Spring</h3></div>
+    <img src="lente.jpg" alt="Spring in Helmond and Rovaniemi">
+
+    <div class="image-overlay">
+      <div class="image-content">
+        <span>Fresh starts</span>
+        <h3>Spring</h3>
+        <p>
+          Explore blooming parks, cultural traditions, fresh outdoor walks,
+          and the return of light after winter.
+        </p>
+        <div class="image-button">Explore Spring</div>
+      </div>
+    </div>
   </a>
 
   <a href="summer.html" class="image-box">
-    <img src="lente2.jpg" alt="Summer">
-    <div class="image-overlay"><h3>Summer</h3></div>
+    <img src="lente2.jpg" alt="Summer in Helmond and Rovaniemi">
+
+    <div class="image-overlay">
+      <div class="image-content">
+        <span>Bright days</span>
+        <h3>Summer</h3>
+        <p>
+          Discover swimming, canoeing, outdoor terraces, long evenings,
+          and sunny local experiences.
+        </p>
+        <div class="image-button">Explore Summer</div>
+      </div>
+    </div>
   </a>
+</section>
+
+<section class="features-section">
+  <h2>Why Seesuns?</h2>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <h3>Local Experiences</h3>
+      <p>Discover activities that show what Helmond and Rovaniemi are really like.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Seasonal Travel</h3>
+      <p>Explore how spring and summer change the atmosphere of each destination.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Affordable Ideas</h3>
+      <p>Find activities that are fun, memorable, and accessible for different budgets.</p>
+    </div>
+  </div>
 </section>
 
 <div class="divider"></div>
 
 <section class="slideshow-section">
-  <div class="explanation">
-    <p>Discover affordable activities while learning about local culture along the way. Our goal is to guide you toward experiences that leave a lasting impression on your heart, even long after the journey is over.</p>
-  </div>
+<div class="explanation">
+  <h2>A Journey Through Light Seasons</h2>
+  <p>
+    Seesuns helps you compare two very different places during their brightest seasons.
+    From Helmond’s relaxed parks and terraces to Rovaniemi’s northern nature and long daylight,
+    every page gives you ideas for meaningful seasonal experiences.
+  </p>
+</div>
 
   <div class="slideshow">
     <div class="slide active"><img src="slide1.jpg" alt=""></div>
@@ -392,21 +529,42 @@
 
 <script>
   let current = 0;
-  const slides = document.querySelectorAll('.slide');
+  const slides = document.querySelectorAll(".slide");
+  let autoSlide;
 
   function showSlide(n) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    slides[n].classList.add('active');
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[n].classList.add("active");
   }
 
   function changeSlide(step) {
     current += step;
-    if (current < 0) current = slides.length - 1;
-    if (current >= slides.length) current = 0;
+
+    if (current < 0) {
+      current = slides.length - 1;
+    }
+
+    if (current >= slides.length) {
+      current = 0;
+    }
+
     showSlide(current);
+    resetAutoSlide();
+  }
+
+  function startAutoSlide() {
+    autoSlide = setInterval(function() {
+      changeSlide(1);
+    }, 4000);
+  }
+
+  function resetAutoSlide() {
+    clearInterval(autoSlide);
+    startAutoSlide();
   }
 
   showSlide(current);
+  startAutoSlide();
 </script>
 
 </body>
